@@ -1,0 +1,59 @@
+.card-container {
+    display: flex;
+    flex-direction: row;
+    width: 75vw;
+    height: 50vh;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gray;
+    margin: 0 auto;
+}
+
+.login {
+    width: 80%;
+    text-align: center;
+    justify-content: center;
+}
+
+.login_field {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 1px solid slategray;
+    align-items: center;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: rgb(0, 0, 0) 0px 6px 15px -10px;
+}
+.login_button {
+    height: 40px;
+    border-radius: 5px;
+}
+
+.login_button {
+    position: absolute;
+    right: 0;
+}
+
+.login_button:hover {
+    animation: sliding 2s linear
+}
+
+@keyframes sliding {
+    0% {
+        transform: translateX(0)
+    }
+    100% {
+        transform: translateX(-450px)
+    }
+}
+
+
+
+
+.login_button:active {
+    animation: submitting
+}
+
+

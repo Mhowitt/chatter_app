@@ -1,31 +1,34 @@
 const io = require("./index.js").io;
 const { USER_CONNECTED, USER_DISCONNECTED, VERIFY_USERNAME, USER_LOGOUT } = require('../Events.js')
 const { createUser, createChat, createMessage } = require('../EventActions.js')
-const connectedUser = {}
+let connectedUsers = {}
 
-module.exports = socket => {
+module.exports = (socket) => {
   console.log("Socket ID is " + socket.id);
 
   socket.on(VERIFY_USERNAME, (username, cb) => {
-    if (isUser(connectedUser, username)) {
-      cb({ isUser: true, user:null })
+    if (isUser(connectedUsers, username)) {
+      cb({ isUser: true, user: null})
     } else {
     cb({ isUser:false, user:createUser({username:username}) })
     }
   })
 
-  // socket.on(USER_CONNECTED, (username, cb) => {
-
-  // }
+  socket.on(USER_CONNECTED, (user) => {
+    connectedUsers = addUser(connectedUsers, user)
+    socket.user = user;
+    io.emit(USER_CONNECTED, connectedUsers)
+    console.log(connectedUsers)
+  })
 }
 
   function isUser(listUsers, username) {
-    return listUsers[username];
+    return username in listUsers;
   }
 
-  function addUser(listUsers, username){
+  function addUser(listUsers, user){
     let newList = Object.assign({}, listUsers);
-    newList[username.username] = username;
+    newList[user.username] = user;
     return newList;
 
   }
