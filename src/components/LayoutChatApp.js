@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import LoginForm from "./LoginForm";
+import ChatroomContainer from "./ChatroomContainer"
 import { USER_CONNECTED, USER_LOGOUT } from "../Events";
 
 const socketUrl = "http://localhost:5000";
@@ -49,7 +50,7 @@ class LayoutChatApp extends Component {
         { !user ?
           <LoginForm socket={socket} setUser={this.setUser} />
         :
-          <h1>User is set</h1>
+          <ChatroomContainer socket={socket} user={user} logout={this.logout} />
         }
         </div>
     );

@@ -41,19 +41,19 @@
 }
 
 @keyframes sliding {
-    0% {
-        transform: translateX(0)
+    from {
+        right: 0
     }
-    100% {
-        transform: translateX(-450px)
+    to {
+        left: 0;
     }
 }
 
 
 
 
-.login_button:active {
+/* .login_button:active {
     animation: submitting
-}
+} */
 
 
