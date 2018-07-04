@@ -6,24 +6,27 @@ class ChatroomContainer extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        allChats: [],
-        activeChat:''
+        activeChat: null,
+        allChats: []
       };
-      this.setActiveChat = this.setActiveChat.bind(this)
+      // this.setActiveChat = this.setActiveChat.bind(this)
   }
-  setActiveChat = (chat) => {
 
+  setActiveChat = (activeChat) => {
+    this.setState({activeChat})
   }
+
   render() {
-    const { user, socket, logout } = this.props
+    const { user, logout } = this.props
+    const { activeChat, allChats } = this.state
       return (
-        <div>
+        <div className="container">
           <SideMenu
             logout={logout}
-            user={user}
             allChats={allChats}
+            user={user}
             activeChat={activeChat}
-            setActiveChat={this.setActiveChat}
+            setActiveChat={(activeChat) => this.setActiveChat(activeChat)}
           />
           <h2>You're in a chatroom!</h2>
         </div>

@@ -22,6 +22,10 @@ class LoginForm extends Component {
     this.setUser= this.setUser.bind(this)
   }
 
+  componentDidMount() {
+    this.focus();
+  }
+
   setUser = (response) => {
     if (response.isUser) {
       this.setError("Username taken");
@@ -41,13 +45,18 @@ class LoginForm extends Component {
     const { socket } = this.props;
     const { username } = this.state;
     socket.emit(VERIFY_USERNAME, username, this.setUser);
-    this.setState({username: ""})
+    // this.setState({username: ""})
   };
 
     handleChange = e => {
     e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
   };
+
+  focus(){
+		this.textInput.focus()
+  }
+
   render() {
     const { username, error } = this.state;
 
@@ -61,6 +70,7 @@ class LoginForm extends Component {
             <div className="login_field">
               <input
                 type="text"
+                ref={(input)=>{ this.textInput = input }}
                 style={loginInput}
                 name="username"
                 id="username"
@@ -70,7 +80,7 @@ class LoginForm extends Component {
               />
               <button type="submit" className="login_button">Chatter Away</button>
             </div>
-            <div className="error">{error ? error : null}</div>
+            <div className="error">{error ? error : ""}</div>
           </form>
         </div>
       </div>

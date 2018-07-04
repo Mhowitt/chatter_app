@@ -42,11 +42,10 @@ class LayoutChatApp extends Component {
   };
 
   render() {
-    const { title } = this.props;
     const { socket, user } = this.state;
     return (
       <div>
-        <h1>{title}</h1>
+
         { !user ?
           <LoginForm socket={socket} setUser={this.setUser} />
         :

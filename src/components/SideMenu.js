@@ -1,13 +1,53 @@
 import React, { Component } from 'react';
 
 class SideMenu extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {  };
-  }
-  render() {
+    render() {
+    const { allChats, user, logout, activeChat, setActiveChat } = this.props;
     return (
-      <div>Side Bar Component</div>
+      <div id="side-bar">
+        <div className="heading">Chatter App</div>
+        <div className="search">
+          <input type="text" placeholder="Search Contacts"/>
+        </div>
+        <div
+						className="users"
+						ref='users'
+						onClick={(e)=>{ (e.target === this.refs.user) && setActiveChat(null) }}>
+
+						{
+						allChats.map((chat)=>{
+							if(chat.name){
+								const lastMessage = chat.messages[chat.messages.length - 1];
+								const user = chat.users.find(({name})=>{
+									return name !== this.props.name
+								}) || { name:"Community" }
+								const classNames = (activeChat && activeChat.id === chat.id) ? 'active' : ''
+								return(
+								<div
+									key={chat.id}
+									className={`user ${classNames}`}
+									onClick={ ()=>{ setActiveChat(chat) } }
+									>
+									<div className="user-photo">{user.name[0].toUpperCase()}</div>
+									<div className="user-info">
+										<div className="name">{user.name}</div>
+										{lastMessage && <div className="last-message">{lastMessage.message}</div>}
+									</div>
+
+								</div>
+							)
+							}
+
+							return null
+						})
+						}
+
+					</div>
+        <div>
+          <div>{user.name}</div>
+          <button onClick={() => {logout()}}>Logout!</button>
+        </div>
+      </div>
     );
   }
 }
