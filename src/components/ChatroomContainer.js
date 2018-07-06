@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import SideMenu from './SideMenu'
+import ChatroomHeading from './ChatroomHeading'
+import MessagesContainer from './MessagesContainer'
+import './ChatroomContainer.css'
 
 
 class ChatroomContainer extends Component {
@@ -21,13 +24,20 @@ class ChatroomContainer extends Component {
     const { activeChat, allChats } = this.state
       return (
         <div className="container">
-          <SideMenu
-            logout={logout}
-            allChats={allChats}
-            user={user}
-            activeChat={activeChat}
-            setActiveChat={(activeChat) => this.setActiveChat(activeChat)}
+          <ChatroomHeading
+          user={user}
+          logout={logout}
           />
+          <div className="main-container">
+            <SideMenu
+              logout={logout}
+              allChats={allChats}
+              user={user}
+              activeChat={activeChat}
+              setActiveChat={(activeChat) => this.setActiveChat(activeChat)}
+            />
+            <MessagesContainer user={user} activeChat={activeChat} />
+          </div>
           <h2>You're in a chatroom!</h2>
         </div>
       );

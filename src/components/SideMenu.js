@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
+import './SideMenu.css'
 
 class SideMenu extends Component {
     render() {
     const { allChats, user, logout, activeChat, setActiveChat } = this.props;
     return (
-      <div id="side-bar">
-        <div className="heading">Chatter App</div>
+      <div className="side-menu-container">
+        <div className="side-menu-heading">Chatter App</div>
         <div className="search">
-          <input type="text" placeholder="Search Contacts"/>
+          <span className="search-icon"><i className="fas fa-search glass"></i></span>
+          <input type="text" className="text-input-box"/>
         </div>
         <div
 						className="users"
@@ -28,9 +30,9 @@ class SideMenu extends Component {
 									className={`user ${classNames}`}
 									onClick={ ()=>{ setActiveChat(chat) } }
 									>
-									<div className="user-photo">{user.name[0].toUpperCase()}</div>
+									<div className="user-photo">{user.username[0].toUpperCase()}</div>
 									<div className="user-info">
-										<div className="name">{user.name}</div>
+										<div className="name">{user.username}</div>
 										{lastMessage && <div className="last-message">{lastMessage.message}</div>}
 									</div>
 
@@ -44,7 +46,7 @@ class SideMenu extends Component {
 
 					</div>
         <div>
-          <div>{user.name}</div>
+          <div>{user.username}</div>
           <button onClick={() => {logout()}}>Logout!</button>
         </div>
       </div>

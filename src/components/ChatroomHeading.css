@@ -1,0 +1,11 @@
+.heading-container {
+  width: 100vw;
+  background: linear-gradient(tomato, #e66465);
+  height: 7vh;
+  color: aliceblue;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}

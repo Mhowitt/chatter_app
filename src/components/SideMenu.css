@@ -1,0 +1,32 @@
+.side-menu-container {
+  width: 20vw;
+  height: 93vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background: linear-gradient(tomato, #e66465);
+  box-shadow: -1px 8px 70px -16px rgba(230,100,101,1);
+  font-weight: 700;
+  color: aliceblue;
+}
+
+.text-input-box {
+  width: 75%;
+  height: 20px;
+  background: transparent;
+  z-index: 9;
+}
+.search-icon {
+  position: absolute;
+  left: 15%;
+  top: 10%;
+}
+
+span > .fas.fa-search.glass {
+  color: rgb(118, 118, 118);
+}
+
+
+.search {
+  position: relative;
+}
