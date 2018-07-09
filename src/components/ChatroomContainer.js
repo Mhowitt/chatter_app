@@ -37,7 +37,11 @@ class ChatroomContainer extends Component {
               setActiveChat={(activeChat) => this.setActiveChat(activeChat)}
             />
           </div>
-            <MessagesContainer user={user} activeChat={activeChat} />
+            <MessagesContainer
+              user={user}
+              activeChat={activeChat}
+              allChats={allChats}
+              />
           <h2>You're in a chatroom!</h2>
         </div>
       );
