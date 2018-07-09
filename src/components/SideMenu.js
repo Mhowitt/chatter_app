@@ -47,7 +47,7 @@ class SideMenu extends Component {
 					</div>
         <div>
           <div>{user.username}</div>
-          <button onClick={() => {logout()}}>Logout!</button>
+          {/* <button onClick={() => {logout()}}>Logout!</button> */}
         </div>
       </div>
     );

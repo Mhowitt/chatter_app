@@ -4,8 +4,8 @@ import './ChatroomHeading.css'
 const ChatroomHeading = props => {
   return (
     <div className="heading-container">
-    Welcome back {props.user.username}!
-
+      Welcome back {props.user.username}!
+      <button onClick={() => {props.logout()}}>Logout!</button>
     </div>
   )
 }

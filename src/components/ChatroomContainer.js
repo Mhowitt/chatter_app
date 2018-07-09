@@ -24,11 +24,11 @@ class ChatroomContainer extends Component {
     const { activeChat, allChats } = this.state
       return (
         <div className="container">
-          <ChatroomHeading
-          user={user}
-          logout={logout}
-          />
           <div className="main-container">
+            <ChatroomHeading
+            user={user}
+            logout={logout}
+            />
             <SideMenu
               logout={logout}
               allChats={allChats}
@@ -36,8 +36,8 @@ class ChatroomContainer extends Component {
               activeChat={activeChat}
               setActiveChat={(activeChat) => this.setActiveChat(activeChat)}
             />
-            <MessagesContainer user={user} activeChat={activeChat} />
           </div>
+            <MessagesContainer user={user} activeChat={activeChat} />
           <h2>You're in a chatroom!</h2>
         </div>
       );
