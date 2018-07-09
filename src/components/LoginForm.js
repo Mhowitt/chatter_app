@@ -48,7 +48,7 @@ class LoginForm extends Component {
     // this.setState({username: ""})
   };
 
-    handleChange = e => {
+  handleChange = e => {
     e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
   };
