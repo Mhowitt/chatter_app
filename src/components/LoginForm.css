@@ -6,7 +6,6 @@
     align-self: center;
     justify-content: center;
     align-items: center;
-    border: 1px solid gray;
     margin: 0 auto;
 }
 
@@ -26,6 +25,11 @@
     border-radius: 5px;
     box-shadow: rgb(0, 0, 0) 0px 6px 15px -10px;
 }
+
+input:focus {
+    outline: none;
+}
+
 .login_button {
     height: 40px;
     border-radius: 5px;

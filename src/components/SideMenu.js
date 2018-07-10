@@ -30,7 +30,7 @@ class SideMenu extends Component {
 									className={`user ${classNames}`}
 									onClick={ ()=>{ setActiveChat(chat) } }
 									>
-									<div className="user-photo">{user.username[0].toUpperCase()}</div>
+									{/* <div className="user-photo">{user.username[0].toUpperCase()}</div> */}
 									<div className="user-info">
 										<div className="name">{user.username}</div>
 										{lastMessage && <div className="last-message">{lastMessage.message}</div>}

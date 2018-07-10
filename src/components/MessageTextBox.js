@@ -7,13 +7,9 @@ class MessageTextBox extends Component {
       isTyping: false,
       message: ""
      };
-     this.handleChange = this.handleChange.bind(this)
-     this.handleSubmit = this.handleSubmit.bind(this)
+    //  this.handleChange = this.handleChange.bind(this)
+    //  this.handleSubmit = this.handleSubmit.bind(this)
   }
-
-  componentWillUnmount() {
-	  this.stopCheckingTyping()
-	}
 
   handleSubmit = (e) => {
 		e.preventDefault()
@@ -25,6 +21,14 @@ class MessageTextBox extends Component {
     e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
   };
+
+  sendMessage = ()=>{
+		this.props.sendMessage(this.state.message)
+  }
+
+    componentWillUnmount() {
+	  this.stopCheckingTyping()
+	}
 
   sendTyping = () => {
     this.lastUpdateTime = Date.now()
@@ -51,7 +55,9 @@ class MessageTextBox extends Component {
 			clearInterval(this.typingInterval)
 			this.props.sendTyping(false)
 		}
-	}
+  }
+
+
 
   render() {
     const { isTyping, message } = this.state
