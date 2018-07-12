@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SideMenu from './SideMenu'
 import ChatroomHeading from './ChatroomHeading'
-import MessagesContainer from './MessagesContainer'
+// import MessagesContainer from './MessagesContainer'
 import { MESSAGE_SENT, TYPING, COMMUNITY_CHAT, MESSAGE_RECEIVED } from "../Events";
 import ChatHeading from './ChatHeading'
 import MessageList from './MessageList'
@@ -28,6 +28,7 @@ class ChatroomContainer extends Component {
   }
 
   addChat = (newChat, reset) => {
+    debugger;
     const { socket } = this.props;
     const {allChats, activeChat } = this.state;
 
@@ -78,8 +79,14 @@ class ChatroomContainer extends Component {
 
   sendMessage = (chatId, message) => {
     const { socket } = this.props
-    console.log(chatId + message)
-    socket.emit(MESSAGE_SENT, { chatId, message })
+    let messageObj = {
+      chatId: chatId,
+      message: message,
+      sender: socket.user
+    }
+    console.log(messageObj.chatId + ' ' + messageObj.message + ' ' + messageObj.sender)
+    socket.emit(MESSAGE_SENT, messageObj)
+    this.setState({})
   }
 
   sendTyping = (chatId, isTyping) => {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './MessageTextBox.css'
 
 class MessageTextBox extends Component {
   constructor(props) {
@@ -7,11 +8,12 @@ class MessageTextBox extends Component {
       isTyping: false,
       message: ""
      };
-    //  this.handleChange = this.handleChange.bind(this)
-    //  this.handleSubmit = this.handleSubmit.bind(this)
+     this.handleChange = this.handleChange.bind(this)
+     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
+    debugger;
 		e.preventDefault()
 		this.sendMessage()
 		this.setState({ message: "" })
@@ -23,6 +25,7 @@ class MessageTextBox extends Component {
   };
 
   sendMessage = ()=>{
+
 		this.props.sendMessage(this.state.message)
   }
 
@@ -62,14 +65,15 @@ class MessageTextBox extends Component {
   render() {
     const { isTyping, message } = this.state
     return (
-      <div>
-        <form onSumbit={this.handleSubmit}>
+      <div className="message__input__container">
+        <form onSubmit={this.handleSubmit} className="message__form">
           <input name="message"
             onChange={this.handleChange}
             onKeyUp={(e) => {e.keyCode !== 13 && this.sendTyping() }}
             value={message}
             type="text"
             placeholder="Write a message here!"
+            className="message__input"
             />
           <button disabled={message.length < 1} type="submit">Send</button>
         </form>

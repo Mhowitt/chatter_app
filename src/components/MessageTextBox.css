@@ -1,0 +1,14 @@
+
+.message__input {
+  width: 70%;
+}
+.message__input__container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.message__form {
+  width: 100%;
+}
+

@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 
-class MessageList extends Component {
-  constructor(props) {
-    super(props);
-    }
-
-  //   this.state = {  };
-  // }
-  render() {
-    const { user, messages, typingUsers } = this.props;
+const MessageList = props => {
+    const { user, messages, typingUsers } = props;
     return (
         <div
           className="thread-container">
@@ -18,7 +11,7 @@ class MessageList extends Component {
                 return (
                   <div
                     key={mes.id}
-                    className={`message-container ${mes.sender === user.name && 'right'}`}
+                    className={`message-container ${mes.sender === user.username && 'right'}`}
                   >
                     <div className="time">{mes.time}</div>
                     <div className="data">
@@ -44,7 +37,6 @@ class MessageList extends Component {
 
         </div>
     );
-  }
 }
 
 export default MessageList;

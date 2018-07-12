@@ -24,8 +24,8 @@ module.exports = (socket) => {
   socket.on(USER_CONNECTED, (user) => {
     connectedUsers = addUser(connectedUsers, user)
     socket.user = user;
-    sentUserMessage = sendMessage(user.username)
-    sendUserTyping = sendTypingAction(user.username)
+    // sentUserMessage = sendMessage(user.username)
+    // sendUserTyping = sendTypingAction(user.username)
 
     io.emit(USER_CONNECTED, connectedUsers)
     console.log(connectedUsers)
@@ -54,7 +54,10 @@ module.exports = (socket) => {
 
 //message functions
   socket.on(MESSSAGE_SENT, ( {chatId, message} ) => {
-    sentUserMessage(chatId, message)
+    console.log("made it to backend sent message")
+    let sender = socket.user.username
+    console.log(chatId + ' ' + message)
+    io.emit(`${MESSAGE_RECEIVED}-${chatId}`, createMessage({message, sender}))
   })
 
   socket.on(TYPING, ( {chatId, isTyping} ) => {
@@ -79,11 +82,16 @@ module.exports = (socket) => {
     return newList;
   }
 
-function sendMessage(sender) {
-  return (chatId, message) => {
-    io.emit(`${MESSAGE_RECEIVED}-${chatId}`, createMessage({message, sender}))
-  }
-}
+// function sendMessage(data) {
+//   console.log("made it to send message on backend" + data.sender)
+//   // return (data) => {
+//     let message = data.message;
+//     let chatId = data.chatId
+//     let sender = data.sender
+//     console.log(chatId + ' ' + message)
+//     io.emit(`${MESSAGE_RECEIVED}-${chatId}`, createMessage({message, sender}))
+//   // }
+// }
 
 function sendTypingAction(user) {
   return (chatId, isTyping) => {
