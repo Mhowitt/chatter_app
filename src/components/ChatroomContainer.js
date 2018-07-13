@@ -28,7 +28,6 @@ class ChatroomContainer extends Component {
   }
 
   addChat = (newChat, reset) => {
-    debugger;
     const { socket } = this.props;
     const {allChats, activeChat } = this.state;
 
@@ -82,7 +81,7 @@ class ChatroomContainer extends Component {
     let messageObj = {
       chatId: chatId,
       message: message,
-      sender: socket.user
+      sender: this.props.user.username
     }
     console.log(messageObj.chatId + ' ' + messageObj.message + ' ' + messageObj.sender)
     socket.emit(MESSAGE_SENT, messageObj)
@@ -124,7 +123,8 @@ class ChatroomContainer extends Component {
               <ChatHeading activeChat={activeChat.name}/>
               <MessageList messages={activeChat.messages} user={user} typingUsers={activeChat.typingUsers} />
               <MessageTextBox
-                sendMessage={ (message) => { this.sendMessage(activeChat.id, message) }}
+                activeChat={activeChat}
+                sendMessage={(message) => { this.sendMessage(activeChat.id, message)} }
                 sendTyping= {(isTyping) => { this.sendTyping(activeChat.id, isTyping) }}/>
             </div>
            :

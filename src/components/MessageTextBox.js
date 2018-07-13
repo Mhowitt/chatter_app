@@ -8,14 +8,14 @@ class MessageTextBox extends Component {
       isTyping: false,
       message: ""
      };
-     this.handleChange = this.handleChange.bind(this)
      this.handleSubmit = this.handleSubmit.bind(this)
+     this.handleChange = this.handleChange.bind(this)
   }
 
   handleSubmit = e => {
-    debugger;
-		e.preventDefault()
-		this.sendMessage()
+    e.preventDefault()
+    let message = this.state.message;
+		this.props.sendMessage(message)
 		this.setState({ message: "" })
   }
 
@@ -23,11 +23,6 @@ class MessageTextBox extends Component {
     e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
   };
-
-  sendMessage = ()=>{
-
-		this.props.sendMessage(this.state.message)
-  }
 
     componentWillUnmount() {
 	  this.stopCheckingTyping()

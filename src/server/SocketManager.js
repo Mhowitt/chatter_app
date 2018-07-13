@@ -1,7 +1,7 @@
 const io = require("./index.js").io;
 const { USER_CONNECTED, USER_DISCONNECTED, VERIFY_USERNAME,
   USER_LOGOUT, COMMUNITY_CHAT, MESSAGE_RECEIVED,
-  MESSSAGE_SENT, TYPING } = require('../Events.js')
+  MESSAGE_SENT, TYPING } = require('../Events.js')
 const { createUser, createChat, createMessage } = require('../EventActions.js')
 let connectedUsers = {}
 
@@ -53,15 +53,16 @@ module.exports = (socket) => {
   })
 
 //message functions
-  socket.on(MESSSAGE_SENT, ( {chatId, message} ) => {
+  socket.on(MESSAGE_SENT, ( {chatId, message, sender} ) => {
     console.log("made it to backend sent message")
-    let sender = socket.user.username
     console.log(chatId + ' ' + message)
     io.emit(`${MESSAGE_RECEIVED}-${chatId}`, createMessage({message, sender}))
   })
 
   socket.on(TYPING, ( {chatId, isTyping} ) => {
-    sendUserTyping(chatId, isTyping)
+    let typist = socket.user
+    sendTypingAction({typist, chatId, isTyping})
+
   })
 }
 
@@ -93,8 +94,8 @@ module.exports = (socket) => {
 //   // }
 // }
 
-function sendTypingAction(user) {
-  return (chatId, isTyping) => {
+function sendTypingAction({user, chatId, isTyping}) {
+  return (chatId, isTyping, user) => {
     io.emit(`${TYPING}-${chatId}`, {user, isTyping})
   }
 }
