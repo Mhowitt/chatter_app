@@ -78,7 +78,7 @@ class LoginForm extends Component {
                 onChange={this.handleChange}
                 placeholder="My Sweeeeeet Username"
               />
-              <button type="submit" className="login_button">Chatter Away</button>
+              <button type="submit" className="login_button">Type a Username <span>To Start Chattering</span></button>
             </div>
             <div className="error">{error ? error : ""}</div>
           </form>

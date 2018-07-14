@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
+import './MessageList.css'
 
 const MessageList = props => {
     const { user, messages, typingUsers } = props;
     return (
         <div
-          className="thread-container">
-          <div className="thread">
+          className="message_list_container">
+          <div className="messages">
             {
               messages.map((mes)=>{
                 return (
                   <div
                     key={mes.id}
-                    className={`message-container ${mes.sender === user.username && 'right'}`}
+                    className={`message-container ${mes.sender === user.username ? 'my_message' : 'other_message'}`}
                   >
                     <div className="time">{mes.time}</div>
                     <div className="data">
-                      <div className="message">{mes.message}</div>
+                      <div className="message_content">{mes.message}</div>
                       <div className="name">{mes.sender}</div>
                     </div>
                   </div>

@@ -33,15 +33,31 @@ input:focus {
 .login_button {
     height: 40px;
     border-radius: 5px;
-}
-
-.login_button {
     position: absolute;
     right: 0;
+    /* width: 150px;
+    transition: width ease-out 1s; */
 }
 
-.login_button:hover {
-    animation: sliding 2s linear
+.login_button > span {
+    opacity: 0;
+    /* visibility: collapse; */
+    transition: opacity ease-out 1s;
+}
+
+/* .login_button:hover {
+width: 300px;
+} */
+
+/* .login_button {
+    position: absolute;
+    right: 0;
+} */
+
+
+.login_button > span:hover {
+    opacity: 1;
+    /* visibility: visible; */
 }
 
 @keyframes sliding {
