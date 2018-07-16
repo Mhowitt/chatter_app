@@ -19,15 +19,22 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    border: 1px solid slategray;
+    /* border-bottom: 1px solid slategray; */
     align-items: center;
     position: relative;
-    border-radius: 5px;
+    /* border-radius: 5px; */
+    /* box-shadow: rgb(0, 0, 0) 0px 6px 15px -10px; */
+}
+
+.login_field > input {
+    border-bottom: 1px solid slategray;
     box-shadow: rgb(0, 0, 0) 0px 6px 15px -10px;
+    margin-right: 0;
 }
 
 input:focus {
     outline: none;
+    box-shadow: rgb(0, 0, 0) 0px 6px 15px -10px;
 }
 
 .login_button {
@@ -35,19 +42,28 @@ input:focus {
     border-radius: 5px;
     position: absolute;
     right: 0;
-    /* width: 150px;
-    transition: width ease-out 1s; */
+    width: 150px;
+    text-align: center;
+    position: relative;
+    outline: none;
+    transition: width ease-out 1s;
 }
 
 .login_button > span {
+    position: absolute;
     opacity: 0;
-    /* visibility: collapse; */
-    transition: opacity ease-out 1s;
+    transform: translate(0, 15px);
+    width: 100px;
 }
 
-/* .login_button:hover {
-width: 300px;
+/* .button_container: {
+
 } */
+
+.button_container:hover .login_button {
+width: 225px;
+text-align: start;
+}
 
 /* .login_button {
     position: absolute;
@@ -55,8 +71,9 @@ width: 300px;
 } */
 
 
-.login_button > span:hover {
+.button_container:hover .login_button > span {
     opacity: 1;
+    transform: translate(0, 0)
     /* visibility: visible; */
 }
 
