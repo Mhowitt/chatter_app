@@ -1,24 +1,32 @@
 .side-menu-container {
   width: 20vw;
-  height: 90vh;
+  height: 100vh;
   display: flex;
+  text-transform: uppercase;
   flex-direction: column;
   text-align: center;
-  background: #ff5536;
+  background:whitesmoke;
+  border-right: 1px solid #D5BDBB;
   box-shadow: -1px 8px 70px -16px rgba(230,100,101,1);
-  font-weight: 700;
-  color: aliceblue;
+  font-weight: 600;
+  font-size: 105%;
+  color: #ff5536;
 }
 
 .text-input-box {
-  width: 75%;
+  width: 90%;
   height: 20px;
+  border-radius: 10px;
   background: transparent;
   z-index: 9;
 }
+
+.text-input-box:focus {
+  outline: none;
+}
 .search-icon {
   position: absolute;
-  left: 15%;
+  left: 10%;
   top: 10%;
 }
 

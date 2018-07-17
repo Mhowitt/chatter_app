@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
+import './ChatHeading.css'
 
-const ChatHeading = ({name, numberOfUsers}) => {
+const ChatHeading = ({activeChat, name, numberOfUsers}) => {
   return (
     <div className="chat-header">
       <div className="user-info">
-        <div className="user-name">{name}</div>
+        <div className="user-name">{activeChat}</div>
         <div className="status">
           <div className="indicator"></div>
           <span>{numberOfUsers ? numberOfUsers : null}</span>
         </div>
       </div>
-    <div className="options">
+    {/* <div className="options">
       <button>Add User</button>
-    </div>
+    </div> */}
   </div>
   );
 }

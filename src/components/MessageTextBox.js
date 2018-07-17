@@ -70,7 +70,7 @@ class MessageTextBox extends Component {
             placeholder="Write a message here!"
             className="message__input"
             />
-          <button disabled={message.length < 1} type="submit">Send</button>
+          <button disabled={message.length < 1} type="submit" className="login_button">Send</button>
         </form>
       </div>
     );

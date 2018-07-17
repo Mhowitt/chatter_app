@@ -1,11 +1,18 @@
 
 .message__input {
-  width: 70%;
+  width: 60%;
+  text-align: start;
+  height: 5vh;
+  /* outline: none; */
 }
+.message__input:focus {
+  outline: none;
+}
+
 .message__input__container {
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 90%;
 }
 
 .message__form {

@@ -1,8 +1,8 @@
 .heading-container {
-  width: 20vw;
-  background: linear-gradient(tomato, #e66465);
-  height: 10vh;
-  color: aliceblue;
+  width: 10vw;
+  background: linear-gradient(to bottom, #ef7066, #ef7d72, #ef897f, #ee948b);
+  height: 100vh;
+  color: whitesmoke;
   justify-content: center;
   display: flex;
   flex-direction: column;

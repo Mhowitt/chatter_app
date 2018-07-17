@@ -5,7 +5,7 @@
 
 .main-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .messages-container {
@@ -14,10 +14,10 @@
   width: 100vw;
   margin: 0;
   /* text-align: center; */
-  background: aliceblue;
+  background-color: whitesmoke;
 }
 
 button {
   background: linear-gradient(tomato, #e66465);
-  color: aliceblue;
+  color: whitesmoke;
 }

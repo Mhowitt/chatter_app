@@ -45,7 +45,6 @@ class LayoutChatApp extends Component {
     const { socket, user } = this.state;
     return (
       <div>
-
         { !user ?
           <LoginForm socket={socket} setUser={this.setUser} />
         :

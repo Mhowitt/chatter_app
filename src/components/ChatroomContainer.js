@@ -117,9 +117,8 @@ class ChatroomContainer extends Component {
             />
           </div>
           <div className="messages-container">
-        Message Container
           { activeChat !== null ?
-            <div>Here's you active Chatroom
+            <div>
               <ChatHeading activeChat={activeChat.name}/>
               <MessageList messages={activeChat.messages} user={user} typingUsers={activeChat.typingUsers} />
               <MessageTextBox

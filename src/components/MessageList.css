@@ -19,10 +19,6 @@
 }
 
 .my_message {
-  /* background: linear-gradient(#EF7066, #F7937C);
-  border: 1px solid #EF7066;
-  border-radius: 10px;
-  color: aliceblue; */
   align-self: flex-end;
 }
 
@@ -37,7 +33,7 @@
 
 .data {
   width: 90%;
-  margin: 1%;
+  margin: 0.5%;
 }
 
 .other_message .message_content {
@@ -49,10 +45,10 @@
 }
 
 .my_message .message_content {
-  background: linear-gradient(#EF7066, #F7937C);
+  background: linear-gradient(to left, #ef7066, #f1796b, #f38270, #f58b76, #f7937c);
   border: 1px solid #EF7066;
   border-radius: 10px;
   padding: 1%;
   width: 100%;
-  color: aliceblue;
+  color: whitesmoke;
 }
