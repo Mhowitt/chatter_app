@@ -5,7 +5,7 @@ const ChatroomHeading = props => {
   return (
     <div className="heading-container">
       {props.user.username}!
-      <button onClick={() => {props.logout()}}>Logout!</button>
+      <button onClick={() => {props.logout()}}><i class="fas fa-sign-out-alt"></i></button>
     </div>
   )
 }
